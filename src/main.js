@@ -6,8 +6,10 @@ import Cinema from './components/Cinema'
 
 Vue.use(VueRouter);
 
+Vue.config.devtools = true;
+
 const routes = [
-  { path: '/cinema', component: Cinema },
+  { path: '/cinema/:id', component: Cinema },
   { path: '/', component: MainPage }
 ];
 

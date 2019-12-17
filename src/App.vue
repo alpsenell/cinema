@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <h1>App Vue</h1>
+    <router-link to="/">Home</router-link>
+    <router-link to="/cinema/10">Cinema</router-link>
+    <router-link to="/cinema/14">Cinema 14</router-link>
+    <hr>
     <router-view></router-view>
   </div>
 </template>

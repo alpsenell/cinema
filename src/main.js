@@ -1,20 +1,23 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
-//import VueAxios from 'vue-axios'
+import VueRouter from 'vue-router'
+import MainPage from './components/MainPage'
+import Cinema from './components/Cinema'
 
-Vue.config.productionTip = false
+Vue.use(VueRouter);
+
+const routes = [
+  { path: '/cinema', component: Cinema },
+  { path: '/', component: MainPage }
+];
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+});
 
 new Vue({
-  data () {
-    return {
-      info: null
-    }
-  },
-  mounted () {
-    axios
-        .get('https://raw.githubusercontent.com/alpsenell/cinema/master/data/movielist.json')
-        .then(response => (this.info = response))
-  },
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  router,
+  render: h => h(App)
+});

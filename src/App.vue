@@ -1,22 +1,32 @@
 <template>
   <div id="app">
-    <h1>App Vue</h1>
-    <router-link to="/">Home</router-link>
-    <router-link to="/cinema/10">Cinema</router-link>
-    <router-link to="/cinema/14">Cinema 14</router-link>
+    <div class="category-list" v-for="movie in movies" v-bind:key="movie.id">
+      <router-link :to="movie.id" class="dropdown-item">{{ movie.originalTitle }}</router-link>
+    </div>
     <hr>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
 
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app',
+    data() {
+      return {
+        movies: []
+      }
+    },
+    beforeCreate() {
+      axios.get('data/movielist.json').then((response) => {
+        this.movies = response.data;
+      });
+    }
+  }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

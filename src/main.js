@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 Vue.config.devtools = true;
 
 const routes = [
-  { path: '/cinema/:id', component: Cinema },
+  { path: '/:id', component: Cinema },
   { path: '/', component: MainPage }
 ];
 

@@ -1,7 +1,8 @@
 <template>
     <div>
-        <h1>Cinema Page</h1>
         <p>Cinema id is {{ $route.params.id }}</p>
+        <div class="cinema-image"  v-bind:style="{ backgroundImage: 'url(' + cinema.posterurl + ')' }"></div>
+        <h1>{{cinema.originalTitle}}</h1>
     </div>
 </template>
 
@@ -15,18 +16,21 @@
                 cinema: {}
             }
         },
+        methods: {
+            updateCinemaData () {
+                axios.get(`data/${this.$route.params.id}.json`).then((response) => {
+                    this.cinema = response.data;
+                });
+            }
+        },
         watch: {
-            $route(to, from) { // eslint-disable-line no-unused-vars
-                // eslint-disable-next-line no-console
-                console.log('to is', to);
-                // eslint-disable-next-line no-console
-                console.log('from is', from);
+            $route(to, from) {
+                if (to !== from) {
+                    this.updateCinemaData();
+                }
             }
         },
         beforeMount() {
-            // eslint-disable-next-line no-console
-            console.log('inside before create');
-
             axios.get(`data/${this.$route.params.id}.json`).then((response) => {
                 this.cinema = response.data;
             });
@@ -35,5 +39,10 @@
 </script>
 
 <style scoped>
-
+    .cinema-image {
+        height: 50vh;
+        width: 100vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 </style>

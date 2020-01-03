@@ -1,6 +1,10 @@
 <template>
-    <div>
-
+    <div id="cinema-preview">
+        <div
+                class="poster"
+                :style="{'background-image': `url(${cinema.posterurl})`}">
+        </div>
+        <h2>{{cinema.originalTitle}}</h2>
     </div>
 </template>
 
@@ -18,14 +22,14 @@
                 required: true
             }
         },
+
         data: function () {
             return {
                 cinema: {}
             };
         },
+
         beforeMount() {
-            // eslint-disable-next-line no-console
-            console.log(this.id);
             axios.get(`data/${this.id}.json`).then((response) => {
                 this.cinema = response.data;
             });
@@ -33,6 +37,14 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    #cinema-preview {
+        .poster {
+            height: 50vh;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
 </style>

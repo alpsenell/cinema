@@ -12,9 +12,7 @@
             </div>
             <span class="duration">{{ duration }}</span>
         </div>
-        <div class="rating">
-            <span>{{ cinema.imdbRating }}</span>/10
-        </div>
+        <imdb-rating :rating="cinema.imdbRating"></imdb-rating>
         <div class="rating-meter">
             <span
                     :style="{ width: `${ratingMeter}%` }"
@@ -28,9 +26,14 @@
 
 <script>
     import axios from 'axios';
+    import ImdbRating from './CinemaPreview/ImdbRating';
 
     export default {
         name: 'CinemaPreview',
+
+        components: {
+            ImdbRating
+        },
 
         props: {
             /**
@@ -127,13 +130,6 @@
                     content: '·';
                     margin-left: 3px;
                 }
-            }
-        }
-
-        .rating {
-            span {
-                font-size: 24px;
-                font-weight: bold;
             }
         }
 

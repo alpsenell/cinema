@@ -1,9 +1,6 @@
 <template>
     <div id="cinema-preview">
-        <div
-                :style="{ 'background-image': `url(${cinema.posterurl})` }"
-                class="poster">
-        </div>
+        <poster :url="cinema.posterurl"></poster>
         <h1>{{ cinema.originalTitle }}</h1>
         <div class="cinema-info">
             <span class="year">{{ cinema.year }}</span>
@@ -23,6 +20,7 @@
     import ImdbRating from './CinemaPreview/ImdbRating';
     import CinemaRouter from './CinemaPreview/CinemaRouter';
     import RatingMeter from './CinemaPreview/RatingMeter';
+    import Poster from './CinemaPreview/Poster'
 
     export default {
         name: 'CinemaPreview',
@@ -30,7 +28,8 @@
         components: {
             ImdbRating,
             CinemaRouter,
-            RatingMeter
+            RatingMeter,
+            Poster
         },
 
         props: {
@@ -66,7 +65,7 @@
                     duration: '',
                     originalTitle: '',
                     imdbRating: 0,
-                    posterUrl: ''
+                    posterurl: ''
                 }
             };
         },
@@ -82,20 +81,9 @@
 <style scoped lang="scss">
     #cinema-preview {
         height: 100vh;
+        max-height: 100vh;
         overflow: auto;
         background: linear-gradient(#ff6000 32%, #FFFFFf 60%, #ffffff 100%);
-
-        .poster {
-            height: 50vh;
-            margin-top: 10vh;
-            width: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-        }
 
         h1 {
             margin-bottom: 0;

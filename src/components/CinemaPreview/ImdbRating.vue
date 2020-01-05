@@ -1,5 +1,5 @@
 <template>
-    <div class="rating">
+    <div id="rating">
         <span>{{ rating }}</span>/10
     </div>
 </template>
@@ -21,7 +21,7 @@
 </script>
 
 <style scoped lang="scss">
-    .rating {
+    #rating {
         span {
             font-size: 24px;
             font-weight: bold;

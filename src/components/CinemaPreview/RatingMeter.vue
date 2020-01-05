@@ -1,5 +1,5 @@
 <template>
-    <div class="rating-meter">
+    <div id="rating-meter">
             <span
                     :style="{ width: `${ratingMeter}%` }"
                     class="meter"></span>
@@ -29,7 +29,7 @@
 </script>
 
 <style scoped lang="scss">
-    .rating-meter {
+    #rating-meter {
         width: 80%;
         height: 10px;
         background-color: #ebebeb;

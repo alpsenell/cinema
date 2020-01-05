@@ -1,5 +1,5 @@
 <template>
-    <button class="cinema-link">
+    <button id="cinema-link">
         <router-link :to="id">Movie Details</router-link>
     </button>
 </template>
@@ -21,12 +21,13 @@
 </script>
 
 <style scoped lang="scss">
-    .cinema-link {
+    #cinema-link {
         width: 80vw;
         border-radius: 8px;
         background-color: #ff6000;
         padding: 20px 0;
         margin-top: 30px;
+        border: none;
 
         a {
             text-decoration: none;

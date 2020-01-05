@@ -13,11 +13,7 @@
             <span class="duration">{{ duration }}</span>
         </div>
         <imdb-rating :rating="cinema.imdbRating"></imdb-rating>
-        <div class="rating-meter">
-            <span
-                    :style="{ width: `${ratingMeter}%` }"
-                    class="meter"></span>
-        </div>
+        <rating-meter :rating="cinema.imdbRating"></rating-meter>
         <cinema-router :id="cinema.id"></cinema-router>
     </div>
 </template>
@@ -26,13 +22,15 @@
     import axios from 'axios';
     import ImdbRating from './CinemaPreview/ImdbRating';
     import CinemaRouter from './CinemaPreview/CinemaRouter';
+    import RatingMeter from './CinemaPreview/RatingMeter';
 
     export default {
         name: 'CinemaPreview',
 
         components: {
             ImdbRating,
-            CinemaRouter
+            CinemaRouter,
+            RatingMeter
         },
 
         props: {
@@ -130,21 +128,6 @@
                     content: '·';
                     margin-left: 3px;
                 }
-            }
-        }
-
-        .rating-meter {
-            width: 80%;
-            height: 10px;
-            background-color: #ebebeb;
-            margin: 0 auto;
-            border-radius: 10px;
-            overflow: hidden;
-
-            .meter {
-                background-color: #ff6000;
-                height: 100%;
-                display: block;
             }
         }
     }

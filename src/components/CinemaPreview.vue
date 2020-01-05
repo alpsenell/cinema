@@ -18,21 +18,21 @@
                     :style="{ width: `${ratingMeter}%` }"
                     class="meter"></span>
         </div>
-        <button class="cinema-link">
-            <router-link :to="cinema.id">Movie Details</router-link>
-        </button>
+        <cinema-router :id="cinema.id"></cinema-router>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
     import ImdbRating from './CinemaPreview/ImdbRating';
+    import CinemaRouter from './CinemaPreview/CinemaRouter';
 
     export default {
         name: 'CinemaPreview',
 
         components: {
-            ImdbRating
+            ImdbRating,
+            CinemaRouter
         },
 
         props: {
@@ -145,22 +145,6 @@
                 background-color: #ff6000;
                 height: 100%;
                 display: block;
-            }
-        }
-
-        .cinema-link {
-            width: 80vw;
-            border-radius: 8px;
-            background-color: #ff6000;
-            padding: 20px 0;
-            margin-top: 30px;
-
-            a {
-                text-decoration: none;
-                color: white;
-                font-size: 22px;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
             }
         }
     }

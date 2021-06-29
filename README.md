@@ -1,5 +1,5 @@
 # cinema-vue
-
+t
 ## Project setup
 ```
 npm install

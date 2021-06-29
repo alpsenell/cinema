@@ -12,9 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.TOKEN_ACTION }}
     - name: Bump version and push tag
       uses: TriPSs/conventional-changelog-action@master
       with:
-        git-message: 'Test message'
+        github-token: ${{ secrets.TOKEN_ACTION }}
+        git-message: 'Hello test'
         tag-prefix: ''
         output-file: 'CHANGELOG.md'

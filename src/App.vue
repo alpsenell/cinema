@@ -15,6 +15,7 @@
             }
         },
         beforeCreate () {
+          console.log('unit test');
             axios.get('data/movielist.json').then((response) => {
                 this.movies = response.data;
             });

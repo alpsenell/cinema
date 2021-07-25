@@ -27,6 +27,7 @@ jobs:
         with:
           commit-message: 'Bumps version to {{version}}'
           patch-words: 'SD-, alp'
+          skip-words: 'unit test'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "cat package.json"

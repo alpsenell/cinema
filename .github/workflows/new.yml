@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 12
       - name: "Automated Version Bump"
-        uses: "phips28/gh-action-bump-version@master"
+        uses: "https://github.com/alpsenell/gh-action-bump-version@master"
         with:
           minor-wording: 'minor version'
           major-wording: 'MAJOR version'

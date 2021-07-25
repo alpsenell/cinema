@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 12
       - name: "Automated Version Bump"
-        uses: "alpsenell/bump-version@master"
+        uses: "alpsenell/bump-version@main"
         with:
           commit-message: 'CI: bumps version to {{version}} [skip ci]'
         env:

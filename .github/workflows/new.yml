@@ -25,7 +25,8 @@ jobs:
       - name: "Automated Version Bump"
         uses: "alpsenell/bump-version@main"
         with:
-          commit-message: 'CI: bumps version to {{version}} [skip ci]'
+          commit-message: 'Bumps version to {{version}}'
+          patch-words: 'SD-, alp'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "cat package.json"

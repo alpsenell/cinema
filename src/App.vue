@@ -17,7 +17,6 @@
         beforeCreate () {
             axios.get('data/movielist.json').then((response) => {
                 this.movies = response.data;
-                console.log('asdfasfa');
             });
         }
     }

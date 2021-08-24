@@ -1,0 +1,33 @@
+name: "Bump Version Workflow"
+
+on:
+    push:
+        branches:
+            - "master"
+
+jobs:
+    bump-version:
+        name: "Bump Version on master"
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Checkout source code"
+              uses: "actions/checkout@v2"
+              with:
+                  ref: ${{ github.ref }}
+            - name: "cat package.json"
+              run: cat ./package.json
+            - name: "Setup Node.js"
+              uses: "actions/setup-node@v1"
+              with:
+                  node-version: 12
+            - name: "Automated Version Bump"
+              uses: './.github/actions/automated-version'
+              with:
+                  commit-message: "Automated bumps version to {{version}}"
+                  patch-words: "SD-"
+                  skip-words: "unit test"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: "cat package.json"
+              run: cat ./package.json

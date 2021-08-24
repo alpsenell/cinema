@@ -21,6 +21,10 @@ jobs:
               uses: "actions/setup-node@v1"
               with:
                   node-version: 12
+            - name: Who am I (temp-set)
+              run: |
+                git config --global user.email "versionBump@useinsider.com"
+                git config --global user.name "Version Bump"
             - name: "Automated Version Bump"
               uses: './.github/actions/automated-version'
               with:

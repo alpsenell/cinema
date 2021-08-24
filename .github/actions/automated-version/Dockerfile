@@ -29,7 +29,7 @@ RUN npm ci --only=production
 
 
 # Copy the rest of your action's code
-COPY .. .
+COPY ./ ./
 
 # Run `node /index.js`
 ENTRYPOINT ["node", "/index.js"]

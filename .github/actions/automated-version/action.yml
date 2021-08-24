@@ -1,0 +1,36 @@
+name: Automated Package json Version Bump
+description: Automated version bump for npm packages.
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: chevron-up
+  color: blue
+inputs:
+  tag-prefix:
+    description: 'Prefix that is used for the git tag'
+    default: ''
+    required: false
+  skip-words:
+    description: 'Words list that do not trigger a version bump'
+    default: 'unit test'
+    required: false
+  minor-words:
+    description: 'Minor version bump'
+    default: 'MINOR VERSION UPDATE'
+    required: false
+  major-words:
+    description: 'Major version bump'
+    default: 'MAJOR VERSION UPDATE'
+    required: false
+  patch-words:
+    description: 'Patch version bump'
+    default: 'Patch VERSION UPDATE'
+    required: false
+  commit-message:
+    description: 'Set a custom commit message for version bump commit'
+    default: ''
+    required: false
+outputs:
+  newTag:
+    description: 'The newly created tag'

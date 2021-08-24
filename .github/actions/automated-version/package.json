@@ -1,0 +1,21 @@
+{
+  "name": "bump-version",
+  "version": "0.1.2",
+  "keywords": [],
+  "author": "alp@useinsider.com",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "actions-toolkit": "^2.2.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "jest": "^25.2.7",
+    "standard": "^14.3.3",
+    "prettier": "^2.3.0"
+  }
+}

@@ -6,9 +6,17 @@ on:
             - "master"
 
 jobs:
-    bump-version:
-        name: "Bump Version on master"
-        runs-on: ubuntu-latest
+  job_one:
+    name: Job One
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run steps of Job One
+        run: echo "Some steps of Job One"
+
+  job_two:
+    needs: [job_one]
+    name: "Bump Version on master"
+    runs-on: ubuntu-latest
 
         steps:
             - name: "Checkout source code"

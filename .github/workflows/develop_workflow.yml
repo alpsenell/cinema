@@ -27,9 +27,8 @@ jobs:
             commit-message: "Automated version bump bumps version to {{version}}"
             patch-words: "SD-"
             skip-words: "unit test"
-            token: ${{ secrets.ACTION_TOKEN }}
         env:
-            GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - name: "cat package.json"
         run: cat ./package.json
 

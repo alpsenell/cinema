@@ -89,8 +89,8 @@ Toolkit.run(async (tools) => {
         // const remoteRepo = `https://${process.env.GITHUB_ACTOR}:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`;
 
         await tools.runInWorkspace('git', ['tag', newVersion]);
-        await tools.runInWorkspace('git', ['push', 'develop --follow-tags']);
-        await tools.runInWorkspace('git', ['push', ' develop tags']);
+        await tools.runInWorkspace('git', ['push', 'origin', 'develop', '--follow-tags']);
+        await tools.runInWorkspace('git', ['push', 'origin', 'develop', '--tags']);
         // await tools.runInWorkspace('git', ['push', remoteRepo, '--follow-tags']);
         // await tools.runInWorkspace('git', ['push', remoteRepo, '--tags']);
     } catch (e) {

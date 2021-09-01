@@ -85,7 +85,7 @@ Toolkit.run(async (tools) => {
         console.log('current:', current, '/', 'version:', version);
         newVersion = execSync(`npm version --git-tag-version=false ${version}`).toString().trim().replace(/^v/, '');
         console.log(`::set-output name=newTag::${newVersion}`);
-
+        console.log(process.env);
         const remoteRepo = `https://${process.env.GITHUB_ACTOR}:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`;
 console.log('test');
         await tools.runInWorkspace('git', ['tag', newVersion]);

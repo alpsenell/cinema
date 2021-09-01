@@ -87,7 +87,7 @@ Toolkit.run(async (tools) => {
         console.log(`::set-output name=newTag::${newVersion}`);
         console.log(process.env);
         const remoteRepo = `https://${process.env.GITHUB_ACTOR}:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`;
-
+console.log('as');
         await tools.runInWorkspace('git', ['tag', newVersion]);
         await tools.runInWorkspace('git', ['push', remoteRepo, '--follow-tags']);
         await tools.runInWorkspace('git', ['push', remoteRepo, '--tags']);

@@ -5,6 +5,7 @@ import MainPage from './components/MainPage'
 import Cinema from './components/Cinema'
 
 Vue.use(VueRouter);
+console.log('a');
 
 const routes = [
   { path: '/:id', component: Cinema },
